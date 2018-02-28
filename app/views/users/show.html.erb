@@ -1,0 +1,40 @@
+  <header class="intro-header" style="background-image: url('/assets/contact-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>PROFILE</h1>
+                        <hr class="small">
+                        <span class="subheading"><%= @user.name %>さん こんにちは</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <h2 class="section-heading"></h2>
+                    <p>Email: <%= @user.email %></p>
+                      <% if @user.image.present? %>
+                      <%= image_tag(@user.image.url) %>
+                      <% end %>
+                      <%= link_to "投稿してみる", new_post_path ,class:'btn btn-primary'%>
+                    <br>
+                    <hr>
+                    <h2 class="section-heading">いいね！一覧</h2>
+                      <% @likes_posts.each do |like| %>
+                        <h2 class="section-heading"><%= like.user.name %>　さん</h2>
+                        <span><%= like.content %></span>
+                        <span><%= link_to 'いいね！を取り消す', post_path(like), class: 'btn btn-success'%></span>
+                        <br>
+                      <% end %>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>

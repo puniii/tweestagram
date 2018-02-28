@@ -1,0 +1,50 @@
+
+    <header class="intro-header" style="background-image: url('/assets/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Post Index</h1>
+                        <hr class="small">
+                        <span class="subheading">A Clean Post</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <p><%= notice %></p>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                  <% @posts.each do |post| %>
+
+                        <h2 class="post-title">
+                          <%= post.content %>
+                        </h2>
+                        <h3 class="post-subtitle">
+                          <% if post.image.present? %>
+                         <%= image_tag(post.image , size: 50)  %>
+                        <% end %>
+                        </h3>
+
+
+                    <p class="post-meta"><%= image_tag(post.user.image , size: 30) %>　by <%= post.user.name %>さん</p>
+
+                <%= link_to '確認', post_path(post.id), class: 'btn btn-success'%>
+              <% if current_user.id == post.user.id %>
+              <%= link_to '編集', edit_post_path(post.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %>
+              <%= link_to '削除', post_path(post.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%>
+              <hr>
+              <% end %>
+              <% end %>
+
+            </div>
+            </div>
+
+            <%= link_to 'New tweet!', new_post_path, class: 'btn btn-info'%>
+        </div>
+    </div>
+    <hr>

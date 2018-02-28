@@ -1,0 +1,97 @@
+
+    <header class="intro-header" style="background-image: url('/assets/contact-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Sign Up</h1>
+                        <hr class="small">
+                        <span class="subheading">まずは登録しよう</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <% if @user.errors.any? %>
+                <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+                  <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+                <p>必要事項を全て記入してください</p>
+                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <div name="sentMessage" id="contactForm" novalidate>
+                  <%= form_with(model: @user, local: true) do |f| %>
+                    <div class="row control-group">
+
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+
+                            <%= f.label :name %>
+
+                            <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name."> -->
+                            <%= f.text_field :name ,class: "form-control" ,placeholder: "Name"%>
+                            <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name."> -->
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <%= f.label :email %>
+                            <%= f.email_field :email ,class: "form-control" ,placeholder:"Email Address" %>
+
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <%= f.label :password %>
+                            <%= f.password_field :password,class: "form-control" ,placeholder: "password" %>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <%= f.label :password_confirmation %>
+                            <%= f.password_field :password_confirmation ,class: "form-control" , placeholder: "password(確認用)"%>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                          <br>
+                            <%= f.file_field :image, id: :feed_image %>
+                            <%= f.hidden_field :image_cache %>
+                          <br>
+                        </div>
+                    </div>
+                          <!-- <div id="success"></div> -->
+                        <!-- <div class="row"> -->
+                          <!-- <div class="form-group col-xs-12"> -->
+                          <br>
+                        <%= f.submit "Send" ,class:"btn btn-default" %>
+                        <% end %>
+                        <!-- </div> -->
+
+
+
+
+
+
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            </div>
+    <hr>

@@ -1,6 +1,9 @@
 class LikesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
+# def show
+#   @likes_posts = @user.like_posts
+# end
 
 def create
   like = current_user.likes.create(post_id: params[:post_id])

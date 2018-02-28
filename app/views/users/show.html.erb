@@ -11,7 +11,7 @@
         </div>
     </header>
 
-    <!-- Post Content -->
+    <!-- user -->
     <article>
         <div class="container">
             <div class="row">
@@ -21,17 +21,23 @@
                     <p>Email: <%= @user.email %></p>
                       <% if @user.image.present? %>
                       <%= image_tag(@user.image.url) %>
+                      <br>
+                      <br>
                       <% end %>
-                      <%= link_to "投稿してみる", new_post_path ,class:'btn btn-primary'%>
+
+                      <%= link_to "NEW　POST", new_post_path ,class:'btn btn-primary'%>
                     <br>
                     <hr>
                     <h2 class="section-heading">いいね！一覧</h2>
                       <% @likes_posts.each do |like| %>
-                        <h2 class="section-heading"><%= like.user.name %>　さん</h2>
-                        <span><%= like.content %></span>
-                        <span><%= link_to 'いいね！を取り消す', post_path(like), class: 'btn btn-success'%></span>
+
+                      <p class="post-meta"><%= image_tag(@user.image , size: 30) %> <%= like.user.name %></p>
+                        <p><%= like.content %></p>
+                        <span><%= link_to 'いいね！を取り消す', post_path(like), class: 'btn btn-default'%></span>
                         <br>
+                        <hr>
                       <% end %>
+
                 </div>
             </div>
         </div>

@@ -1,44 +1,43 @@
-  <header class="intro-header" style="background-image: url('/assets/about-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>show</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
-                    </div>
-                </div>
-            </div>
+<header class="intro-header" style="background-image: url('/assets/home-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>show</h1>
+          <h2 class="subheading">You Posted!</h2>
+          <span class="meta">title :<%= @post.content %></span>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-                    <h2 class="section-heading">内容: <%= @post.content %></h2>
+        <h2 class="section-heading"><%= @post.content %></h2>
 
-                    <%= image_tag @post.image %>
+        <%= image_tag @post.image %>
+        <br>
 
-                    <% unless @post.user == current_user.id %>
-                       <% if @like.present? %>
-                       <%= link_to 'いいね！を取り消す',like_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
-                       <hr>
-                       <% else %>
-                    <%= link_to 'いいね！', likes_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-                       <hr>
+        <% unless @post.user == current_user.id %>
+          <% if @like.present? %>
+            <br>
+            <%= link_to 'いいね！を取り消す',like_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+            <hr>
+          <% else %>
+            <br>
+            <%= link_to 'いいね！', likes_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
 
-                      <% end %>
+          <% end %>
 
-                      <% end %>
+        <% end %>
 
-            </div>
+      </div>
+    </div>
+  </article>
 
-        </div>
-
-    </article>
-
-
-    <hr>
+  <hr>

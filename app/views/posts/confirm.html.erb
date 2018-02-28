@@ -1,10 +1,10 @@
 
-    <header class="intro-header" style="background-image: url('/assets/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('/assets/about-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Post Index</h1>
+                        <h1>Post confirm</h1>
                         <hr class="small">
                         <span class="subheading">A Clean Post</span>
                     </div>
@@ -23,17 +23,20 @@
                   <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
                   <%= form.hidden_field :content %>
 
-                  <p>本文:<%= @post.content %></p>
+                  <p>本文 :<%= @post.content %></p>
                   <% if @post.image.present? %>
                   <%= image_tag(@post.image.url) %>
                   <% end %>
-　                <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
-                  <%= form.submit  "登録する" , class: 'btn btn-warning' %>
+                  <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
+                  <hr>
+                  <br>
+                  <%= form.submit  "登録する" , class: 'btn btn-default' %>
                   <% end %>
 
             <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
             <%= form.hidden_field :content %>
-            <%= form.submit "戻る" ,name: 'back', class: 'btn btn-warning'%></span>
+            <br>
+            <%= form.submit "戻る" ,name: 'back', class: 'btn btn-default'%>
             <% end %>
                 </div>
                 <hr>

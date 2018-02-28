@@ -16,7 +16,6 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-      <!-- <hr> -->
 
       <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -24,19 +23,12 @@
           <p class="help-block text-danger"></p>
 
           <br>
-          <!-- <div class="row control-group"> -->
-          <!-- <div class="form-group col-xs-12 floating-label-form-group controls"> -->
           <%= form.file_field :image, id: :feed_image ,placeholder: "pic"%>
           <%= form.hidden_field :image_cache %>
           <p class="help-block text-danger"></p>
-          <!-- </div> -->
-          <!-- </div> -->
         </div>
       </div>
 
-      <!-- <div class="row control-group"> <div class="form-group col-xs-12 floating-label-form-group controls"> <%= form.text_field :content ,class: "form-control" %> <%= form.file_field :image, id: :feed_image %> <%= form.hidden_field :image_cache %> <p
-      class="help-block text-danger"></p> </div> </div> -->
-      <!-- <hr> -->
       <br>
       <%= form.submit "tweet", class: 'btn btn-info' %>
     <% end %>

@@ -1,73 +1,47 @@
-
-    <header class="intro-header" style="background-image: url('/assets/about-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Post confirm</h1>
-                        <hr class="small">
-                        <span class="subheading">A Clean Post</span>
-                    </div>
-                </div>
-            </div>
+<header class="intro-header" style="background-image: url('/assets/about-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1>Post confirm</h1>
+          <hr class="small">
+          <span class="subheading">A Clean Post</span>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <h3>登録しますか？</h3>
-                <hr>
-                <div class="post-preview">
-                  <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-                  <%= form.hidden_field :content %>
-
-                  <p>本文 :<%= @post.content %></p>
-                  <% if @post.image.present? %>
-                  <%= image_tag(@post.image.url) %>
-                  <% end %>
-                  <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
-                  <hr>
-                  <br>
-                  <%= form.submit  "登録する" , class: 'btn btn-default' %>
-                  <% end %>
-
-            <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
-            <%= form.hidden_field :content %>
-            <br>
-            <%= form.submit "戻る" ,name: 'back', class: 'btn btn-default'%>
-            <% end %>
-                </div>
-                <hr>
-
-                <!-- <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr> -->
-
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+</header>
 
-    <hr>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <h3>登録しますか？</h3>
+      <hr>
+      <div class="post-preview">
+        <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+        <%= form.hidden_field :content %>
+
+        <p>本文 :<%= @post.content %></p>
+        <% if @post.image.present? %>
+          <%= image_tag(@post.image.url) %>
+        <% end %>
+        <%= hidden_field_tag :"cache[image]",@post.image.cache_name %>
+        <hr>
+        <br>
+        <%= form.submit "登録する" , class: 'btn btn-default' %>
+      <% end %>
+
+      <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
+      <%= form.hidden_field :content %>
+      <br>
+      <%= form.submit "戻る" ,name: 'back', class: 'btn btn-default'%>
+    <% end %>
+  </div>
+  <hr>
+
+</div>
+</div>
+</div>
+
+<hr>

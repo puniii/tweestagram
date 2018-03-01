@@ -1,46 +1,48 @@
-  <header class="intro-header" style="background-image: url('/assets/contact-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>PROFILE</h1>
-                        <hr class="small">
-                        <span class="subheading"><%= @user.name %>さん こんにちは</span>
-                </div>
-            </div>
+<header class="intro-header" style="background-image: url('/assets/contact-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Profile</h1>
+          <hr class="small">
+          <span class="subheading"><%= @user.name %>さん こんにちは</span>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- user -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+  <!-- user -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-                    <h2 class="section-heading"></h2>
-                    <p>Email: <%= @user.email %></p>
-                      <% if @user.image.present? %>
-                      <%= image_tag(@user.image.url) %>
-                      <br>
-                      <br>
-                      <% end %>
+          <h2 class="section-heading"></h2>
+          <p>Email:
+            <%= @user.email %></p>
+          <% if @user.image.present? %>
+            <%= image_tag(@user.image.url) %>
+            <br>
+            <br>
+          <% end %>
 
-                      <%= link_to "NEW　POST", new_post_path ,class:'btn btn-primary'%>
-                    <br>
-                    <hr>
-                    <h2 class="section-heading">いいね！一覧</h2>
-                      <% @likes_posts.each do |like| %>
+          <%= link_to "NEW POST", new_post_path ,class:'btn btn-primary'%>
+          <br>
+          <hr>
+          <h2 class="section-heading">いいね！一覧</h2>
+          <% @likes_posts.each do |like| %>
 
-                      <p class="post-meta"><%= image_tag(@user.image , size: 30) %> <%= like.user.name %></p>
-                        <p><%= like.content %></p>
-                        <span><%= link_to 'いいね！を取り消す', post_path(like), class: 'btn btn-default'%></span>
-                        <br>
-                        <hr>
-                      <% end %>
+            <p class="post-meta"><%= image_tag(@user.image , size: 30) %>
+              <%= like.user.name %></p>
+            <p><%= like.content %></p>
+            <span><%= link_to 'いいね！を取り消す', post_path(like), class: 'btn btn-default'%></span>
+            <br>
+            <hr>
+          <% end %>
 
-                </div>
-            </div>
         </div>
-    </article>
+      </div>
+    </div>
+  </article>
 
-    <hr>
+  <hr>

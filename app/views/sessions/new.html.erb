@@ -1,73 +1,65 @@
-
-    <header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Log in</h1>
-                        <hr class="small">
-                        <span class="subheading">Log in?</span>
-                    </div>
-                </div>
-            </div>
+<header class="intro-header" style="background-image: url('/assets/post-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>Log in</h1>
+          <hr class="small">
+          <span class="subheading">Log in?</span>
         </div>
-    </header>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <p>新規登録はこちら</p>
-              <%= link_to "Sign up now!", new_user_path ,class:"btn btn-default"%>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <p>新規登録はこちら</p>
+      <%= link_to "Sign up now!", new_user_path ,class:"btn btn-default"%>
 
+      <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+      <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+      <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
 
-                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+      <div name="sentMessage" id="contactForm" novalidate="novalidate">
+        <%= form_for(:session, url: sessions_path) do |f| %>
 
-                <div name="sentMessage" id="contactForm" novalidate="novalidate">
-                  <%= form_for(:session, url: sessions_path) do |f| %>
+        <div class="row control-group">
+          <div class=" form-group col-xs-12 floating-label-form-group controls">
 
+            <%= f.label :email %>
+            <%= f.email_field :email ,class: "form-control" ,placeholder: "email"%>
 
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
 
-                          <div class="row control-group">
-                              <div class=" form-group col-xs-12 floating-label-form-group controls">
+        <div class="row control-group">
+          <div class=" form-group col-xs-12 floating-label-form-group controls">
 
-                                  <%= f.label :email %>
-                                  <%= f.email_field :email ,class: "form-control" ,placeholder: "email"%>
+            <%= f.label :password %>
+            <%= f.password_field :password,class: "form-control" ,placeholder: "password" %>
 
-                                  <p class="help-block text-danger"></p>
-                              </div>
-                          </div>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="row control-group">
+          <div class=" form-group col-xs-12 floating-label-form-group controls">
 
-                          <div class="row control-group">
-                            <div class=" form-group col-xs-12 floating-label-form-group controls">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation ,class: "form-control" , placeholder: "password(確認用)"%>
 
-                              <%= f.label :password %>
-                              <%= f.password_field :password,class: "form-control" ,placeholder: "password" %>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <!-- <div id="success"></div> <div class="row"> <div class=" form-group col-xs-12"> -->
+        <br>
+        <%= f.submit "Log in" ,class:"btn btn-primary"%>
+      <% end %>
+      <!-- </div> </div> -->
 
-                              <p class="help-block text-danger"></p>
-                            </div>
-                          </div>
-                          <div class="row control-group">
-                            <div class=" form-group col-xs-12 floating-label-form-group controls">
-
-                              <%= f.label :password_confirmation %>
-                              <%= f.password_field :password_confirmation ,class: "form-control" , placeholder: "password(確認用)"%>
-
-                              <p class="help-block text-danger"></p>
-                            </div>
-                          </div>
-                          <!-- <div id="success"></div>
-                          <div class="row">
-                              <div class=" form-group col-xs-12"> -->
-                                <br>
-                                <%= f.submit "Log in" ,class:"btn btn-primary"%>
-                                <% end %>
-                              <!-- </div>
-                          </div> -->
-
-
-                       </div>
-                      </div>
-                      <hr>
+    </div>
+  </div>
+  <hr>

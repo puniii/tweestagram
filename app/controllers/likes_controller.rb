@@ -1,9 +1,6 @@
 class LikesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
-# def show
-#   @likes_posts = @user.like_posts
-# end
 
 def create
   like = current_user.likes.create(post_id: params[:post_id])
@@ -19,7 +16,7 @@ end
 private
 
 def logged_in_user
-  unless  current_user
+  unless current_user
     flash[:referer] = 'ログインしてください'
     render new_session_path
   end
